@@ -145,6 +145,12 @@ public class ServidorPublico {
     public void setNaturalidade(String naturalidade) {
         this.naturalidade = naturalidade;
     }
+    public double calcularSalarioHorasExtras(int horasTrabalhas)
+    {
+        double salarioMensal = salario + horasTrabalhas * 40;
+        return (salarioMensal);
+
+    }
 
     public static void main(String[] args) {
         ServidorPublico isabela = new ServidorPublico(); //1º objeto
@@ -152,6 +158,8 @@ public class ServidorPublico {
         isabela.setMatricula(1);
         isabela.setNome("Isabela Sampaio");
         isabela.setCargo("Auditora");
+        isabela.setSalario(15000);
+        System.out.println("O salário da Isabela mais horas extras é de "+isabela.calcularSalarioHorasExtras(40));
         ServidorPublico heila = new ServidorPublico(); //2º objeto
         heila.setMatricula(2);
         heila.setNome("Heila galeleia");
