@@ -1,6 +1,16 @@
 package org.example.Encapsulamento;
 
 public class ServidorPublico {
+    /***Construtor**/
+    public ServidorPublico(){}
+
+    public ServidorPublico(int matricula, String nome, String cargo) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.cargo = cargo;
+    }
+
+    private static int totalServidor; //Criando um atributo para a classe
     private int matricula;
     private String nome;
     private String foto;
@@ -17,6 +27,10 @@ public class ServidorPublico {
     private String celular;
     private String cpf;
     private String naturalidade;
+
+    public static int getTotalServidor() {
+        return totalServidor;
+    }
 
     public int getMatricula() {
         return matricula;
@@ -151,27 +165,48 @@ public class ServidorPublico {
         return (salarioMensal);
 
     }
+    /*
+    * Usando recurso de VARARGS, que permite que um métado aceite um número de variável de argumentos do mesmo tipo
+    * Passando varias horas extras, tipo: por semana, mês, quinzena
+    * public double calcularSalarioHorasExtras(int... horasTrabalhas)
+    {
+        double salarioMensal = 0;
+        for(int horasExtras : horasTrabalhas)
+            salarioMensal = salarioMensal + horasExtras*40;
+        return (salario + salarioMensal);
+
+    }*/
 
     public static void main(String[] args) {
-        ServidorPublico isabela = new ServidorPublico(); //1º objeto
-        //Acessando o atributo de um objeto = nome do objeto + ponto o atributo
-        isabela.setMatricula(1);
-        isabela.setNome("Isabela Sampaio");
-        isabela.setCargo("Auditora");
+        //Outro métado de adicionar informação. Agora através de um construtor definido acima.
+        ServidorPublico isabela = new ServidorPublico(1, "Isabela Sampaio", "Auditora"); //1º objeto
+        totalServidor++;
         isabela.setSalario(15000);
+        //Passando no métado VARARGS (40,30,10,15)
         System.out.println("O salário da Isabela mais horas extras é de "+isabela.calcularSalarioHorasExtras(40));
+        //Toda vez que for criado um novo construtor precisa ser criado um construtor vazio.
         ServidorPublico heila = new ServidorPublico(); //2º objeto
+        //Acessando o atributo de um objeto = nome do objeto + ponto o atributo
+        totalServidor++;
         heila.setMatricula(2);
         heila.setNome("Heila galeleia");
         heila.setCargo("Estagiária");
+
         ServidorPublico maria = new ServidorPublico(); //3º objeto
+        totalServidor++;
         maria.setMatricula(3);
         maria.setNome("Maria Fontenele");
         maria.setCargo("Analista");
+
         ServidorPublico caio = new ServidorPublico(); //4º objeto
+        totalServidor++;
+
         caio.setMatricula(4);
         caio.setNome("Caio Borges") ;
         caio.setCargo("Analista tributário");
+
+        //Agora vou saber quantos servidores eu tenho;
+        System.out.println(getTotalServidor());
 
     }
 }
