@@ -1,5 +1,7 @@
 package org.example.Encapsulamento;
 
+import org.example.Avaliacao;
+
 public class ServidorPublico {
     /***Construtor**/
     public ServidorPublico(){}
@@ -11,6 +13,16 @@ public class ServidorPublico {
     }
 
     private static int totalServidor; //Criando um atributo para a classe
+    private Avaliacao avaliacao; //Atributo do tipo Enum
+
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
+    }
+
     private int matricula;
     private String nome;
     private String foto;
@@ -213,6 +225,9 @@ public class ServidorPublico {
         caio.setMatricula(4);
         caio.setNome("Caio Borges") ;
         caio.setCargo("Analista tributário");
+        caio.setAvaliacao(Avaliacao.BOM);
+        isabela.setAvaliacao(Avaliacao.EXCELENTE);
+        heila.setAvaliacao(Avaliacao.BOM);
 
         //Agora vou saber quantos servidores eu tenho;
         System.out.println(getTotalServidor());
