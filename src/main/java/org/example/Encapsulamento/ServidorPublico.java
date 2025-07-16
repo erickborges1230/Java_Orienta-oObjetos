@@ -176,6 +176,15 @@ public class ServidorPublico {
         return (salario + salarioMensal);
 
     }*/
+    public void mostrarTamanhoNome(){
+        System.out.println(this.nome.length());
+    }
+    public void mostrarPreNome(){
+        System.out.println(this.nome.substring(0, nome.indexOf(" "))); //Vai mostrar o primeiro nome
+    }
+    public void mostrarSobreNome(){
+        System.out.println(this.nome.substring(nome.indexOf(" "))); //Vai mostrar o primeiro nome
+    }
 
     public static void main(String[] args) {
         //Outro métado de adicionar informação. Agora através de um construtor definido acima.
@@ -207,6 +216,10 @@ public class ServidorPublico {
 
         //Agora vou saber quantos servidores eu tenho;
         System.out.println(getTotalServidor());
+
+        isabela.mostrarTamanhoNome();
+        isabela.mostrarPreNome();
+        isabela.mostrarSobreNome();
 
     }
 }
